@@ -58,9 +58,22 @@ void loop()
   //lcd.print("voltage = ");
   //lcd.print(voltage); //print the voltage to LCD
   //lcd.print(" V");
-  if (voltage > 6.50) //set the voltage considered low battery here
+  if (voltage > 7.00) //set the voltage considered low battery here
   {
-    digitalWrite(yellow_led, HIGH);
+    digitalWrite(green_led, HIGH);
+    digitalWrite(yellow_led, LOW);
+    digitalWrite(red_led, LOW);
     
   }
+  else if(voltage < 7.00 && voltage > 5.00){
+    digitalWrite(yellow_led, HIGH);
+    digitalWrite(green_led, LOW);
+    digitalWrite(red_led, LOW);
+  }
+  else {
+    digitalWrite(red_led, HIGH);
+    digitalWrite(yellow_led, LOW);
+    digitalWrite(green_led, LOW);
+  }
 }
+
